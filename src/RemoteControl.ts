@@ -4,12 +4,12 @@ import NoCommand from './commands/NoCommand.js';
 export default class RemoteControl {
   onCommands: ICommand[];
   offCommands: ICommand[];
-  undoCommand: ICommand;
+  undoCommand: ICommand[];
 
   constructor() {
     this.onCommands = Array.from({ length: 7 }).map((_) => new NoCommand());
     this.offCommands = Array.from({ length: 7 }).map((_) => new NoCommand());
-    this.undoCommand = new NoCommand();
+    this.undoCommand = [];
   }
   setCommand(slot: number, onCommand: ICommand, offCommand: ICommand) {
     this.onCommands[slot] = onCommand;
@@ -17,13 +17,16 @@ export default class RemoteControl {
   }
   onPressed(slot: number) {
     this.onCommands[slot].execute();
-    this.undoCommand = this.onCommands[slot];
+    this.undoCommand.push(this.onCommands[slot]);
   }
   offPressed(slot: number) {
     this.offCommands[slot].execute();
-    this.undoCommand = this.offCommands[slot];
+    this.undoCommand.push(this.offCommands[slot]);
   }
   undoPressed() {
-    this.undoCommand.undo();
+    if (this.undoCommand.length > 0) {
+      this.undoCommand[this.undoCommand.length - 1].undo();
+      this.undoCommand = this.undoCommand.slice(0, -1);
+    }
   }
 }
