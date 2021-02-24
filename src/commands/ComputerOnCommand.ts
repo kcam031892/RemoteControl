@@ -9,4 +9,7 @@ export default class ComputerOnCommand implements ICommand {
   execute(): void {
     this.computer.on();
   }
+  undo(): void {
+    this.computer.off();
+  }
 }

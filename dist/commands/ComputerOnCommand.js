@@ -5,4 +5,7 @@ export default class ComputerOnCommand {
     execute() {
         this.computer.on();
     }
+    undo() {
+        this.computer.off();
+    }
 }

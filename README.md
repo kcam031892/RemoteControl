@@ -46,7 +46,6 @@ TODOS
   - [x] create an Remote
     - [x] remote should be on the bottom and center of the screen.
     - [x] Turn on and Turn Off Buttons.
-- [ ] make an app.ts
-  - [ ] create a class UI.
-  - [ ] create a function that will render commands.
-  - [ ]
+- [x] make an app.ts
+  - [x] create a class UI.
+  - [x] create a function that will render commands.

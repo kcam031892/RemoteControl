@@ -5,4 +5,7 @@ export default class LightOffCommand {
     execute() {
         this.light.off();
     }
+    undo() {
+        this.light.on();
+    }
 }

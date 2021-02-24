@@ -5,7 +5,11 @@ export default class LightOffCommand implements ICommand {
   constructor(light: Light) {
     this.light = light;
   }
+
   execute(): void {
     this.light.off();
+  }
+  undo(): void {
+    this.light.on();
   }
 }

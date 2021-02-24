@@ -6,7 +6,11 @@ export default class ComputerOffCommand implements ICommand {
   constructor(c: Computer) {
     this.computer = c;
   }
+
   execute(): void {
     this.computer.off();
+  }
+  undo(): void {
+    this.computer.on();
   }
 }

@@ -8,13 +8,13 @@ export default class Light implements IAppliance {
 
   on() {
     this.light = './../../images/light-on.png';
-    this.handleChangImage();
+    this.handleChangeImage();
   }
   off() {
     this.light = './../../images/light-off.png';
-    this.handleChangImage();
+    this.handleChangeImage();
   }
-  handleChangImage() {
+  handleChangeImage() {
     const el = document.querySelector(`.appliance.${this.name}`)! as HTMLDivElement;
     const img = el.querySelector('img')! as HTMLImageElement;
     img.src = this.light;

@@ -6,7 +6,11 @@ export default class LightOnCommand implements ICommand {
   constructor(light: Light) {
     this.light = light;
   }
+
   execute(): void {
     this.light.on();
+  }
+  undo(): void {
+    this.light.off();
   }
 }

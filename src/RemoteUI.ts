@@ -8,6 +8,7 @@ export default class RemoteUI {
   constructor() {
     this.el = document.getElementById('remote-control')! as HTMLDivElement;
     this.remoteControl = new RemoteControl();
+    this.createUndoElement();
   }
   renderButton<T extends Appliance>(slot: number, onCommand: ICommand, offCommand: ICommand, base: T) {
     this.remoteControl.setCommand(slot, onCommand, offCommand);
@@ -21,6 +22,7 @@ export default class RemoteUI {
     this.el.appendChild(div);
     this.createApplianceElement(base);
   }
+
   createApplianceElement<T extends Appliance>(base: T) {
     const applianceEl = document.getElementById('appliances')! as HTMLDivElement;
     const img = document.createElement('img');
@@ -30,10 +32,16 @@ export default class RemoteUI {
     div.appendChild(img);
     applianceEl.appendChild(div);
   }
-  configure() {
-    this.handleOnButtons();
-    this.handleOffButtons();
+  createUndoElement() {
+    const div = document.createElement('div');
+    div.classList.add('appliance-control');
+    div.innerHTML = `
+      <h3 class="appliance-control-name">UNDO</h3>
+      <button class="btn btn-on undo-button">Undo</button>
+    `;
+    this.el.appendChild(div);
   }
+
   handleOnButtons() {
     const onButtons = document.querySelectorAll('.on-button');
     onButtons.forEach((btn) => {
@@ -51,5 +59,17 @@ export default class RemoteUI {
         this.remoteControl.offPressed(+dataClickAttr);
       });
     });
+  }
+  handleUndoButtons() {
+    const undoButton = document.querySelector('.undo-button')! as HTMLButtonElement;
+    undoButton.addEventListener('click', (e) => {
+      this.remoteControl.undoPressed();
+    });
+  }
+
+  configure() {
+    this.handleOnButtons();
+    this.handleOffButtons();
+    this.handleUndoButtons();
   }
 }

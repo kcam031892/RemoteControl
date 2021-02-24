@@ -5,13 +5,13 @@ export default class Computer {
     }
     on() {
         this.state = '../../images/computer-on.png';
-        this.handleChangImage();
+        this.handleChangeImage();
     }
     off() {
         this.state = '../../images/computer-off.png';
-        this.handleChangImage();
+        this.handleChangeImage();
     }
-    handleChangImage() {
+    handleChangeImage() {
         const el = document.querySelector(`.appliance.${this.name}`);
         const img = el.querySelector('img');
         img.src = this.state;
