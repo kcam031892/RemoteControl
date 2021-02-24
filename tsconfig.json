@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "ES2015",
+    "strict": true,
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": ["*"],
+      "@utils/*": ["utils/*"],
+      "@appliances/*": ["appliances/*"],
+      "@commands/*": ["commands/*"]
+    },
+    "plugins": [{ "transform": "typescript-transform-paths", "useRootDirs": true }],
+    "esModuleInterop": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+
+  "exclude": ["test"]
+}

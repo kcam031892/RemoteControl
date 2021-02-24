@@ -1,0 +1,24 @@
+{
+  "presets": [
+    [
+      "@babel/preset-2015",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@": "./dist",
+          "@utils": "./dist/utils"
+        }
+      }
+    ]
+  ]
+}

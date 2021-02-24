@@ -1,0 +1,35 @@
+{
+  "name": "home-applicances-control",
+  "version": "1.0.0",
+  "description": "- a simple typescript application that will control appliances.",
+  "main": "dist/app",
+  "scripts": {
+    "test": "jest --watchAll",
+    "start": "babel-node dist/app.js",
+    "dev": "nodemon --exec babel-node dist/app.js",
+    "build": "tsc-watch --onSuccess \"tscpaths -p tsconfig.json -s ./src -o ./dist\"",
+    "clean": "rimraf ./dist"
+  },
+  "dependencies": {
+    "tsc-watch": "^4.2.9",
+    "tsconfig-paths": "^3.9.0",
+    "tscpaths": "0.0.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.12.16",
+    "@babel/node": "^7.12.16",
+    "@babel/preset-env": "^7.12.16",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.28",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "ts-jest": "^26.5.1",
+    "typescript": "^4.1.5",
+    "typescript-transform-paths": "^2.2.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
